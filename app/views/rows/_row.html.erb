@@ -1,0 +1,14 @@
+<% return unless row %>
+
+<% first = row.first? %>
+<div id="<%= dom_id(row) %>" class="row <%= row.yui_grid_type %> <%= 'first' if 
+first %>">
+
+  <% unless (no_tool ||= false) %>
+  <%= tool_shed(row) %>
+  <% end %>
+
+  <div id="<%= dom_id(row, 'container') %>">
+  <%= columns_for(row) %>
+  </div>
+</div>

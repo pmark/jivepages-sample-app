@@ -1,0 +1,13 @@
+<% box = @opts[:box] %>
+<form onsubmit="new Ajax.Request('/boxes', {asynchronous:true, evalScripts:true, parameters:Form.serialize(this) + '&authenticity_token=' + encodeURIComponent(Jivepage.get_token())}); return false;" method="post" action="/boxes">
+    
+  <% editor_dom_id = "box_#{box.id}_in_place_editor" %>
+  <% content = box.content.blank? ? 'click to change' : box.content %>
+  <span class="in_place_editor_field" id="<%= editor_dom_id %>"><%= content %></span><script type="text/javascript">
+  //<![CDATA[
+  new Ajax.InPlaceEditor('<%= editor_dom_id %>', '/boxes/set_box_content/<%= box.id %>', 
+  {rows:5, onFormCustomization:Jivepage.add_token_to_form})
+  //]]>
+  </script>  
+
+</form>

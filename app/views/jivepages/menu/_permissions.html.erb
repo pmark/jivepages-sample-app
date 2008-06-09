@@ -1,0 +1,40 @@
+<% remote_form_for(@jivepage,
+:html => {:id => "jp_permissions_form"}) do |f| %>
+<h5>Page</h5>
+<fieldset>  
+  <legend>Permissions</legend>
+
+<table cellspacing="1" cellpadding="6" class="centered_content" style="background-color:#efefef;">
+  <tr style="background-color:#000; color:#fff">
+    <td>PERMISSIONS</td>
+    <td>editor</td>
+    <td>guest</td>
+    <td>anonymous</td>
+  </tr>
+  <tr style="background-color:#cfcfcf;">
+    <td style="background-color:#000; color:#fff">view</td>
+  </tr>
+  <tr style="background-color:#dfdfdf;">
+    <td style="background-color:#000; color:#fff">edit</td>
+  </tr>
+  <tr style="background-color:#cfcfcf;">
+    <td style="background-color:#000; color:#fff">add</td>
+  </tr>
+  <tr style="background-color:#cfcfcf;">
+    <td style="background-color:#000; color:#fff">delete</td>
+  </tr>
+  <tr style="background-color:#cfcfcf;">
+    <td style="background-color:#000; color:#fff">invite</td>
+  </tr>
+</table>   
+
+<p>
+  Private pages don't appear in any searches.
+</p>
+
+<p>
+  [x] Make public (will be indexed by search engines)
+</p>
+   
+<%= submit_tag "Save", :id => "jp_menu_btn_save_permissions" %>
+<% end %>    

@@ -1,0 +1,16 @@
+<% content_for(:header) do %>
+  <h2>New Page</h2>
+<% end %>
+
+
+<blockquote>
+<%= error_messages_for :jivepage %>
+
+</blockquote>
+
+<% content_for(:footer) do %>
+  <blockquote>
+  <%= link_to 'All pages', jivepages_path %>
+  </blockquote>
+<% end %>
+

@@ -1,0 +1,48 @@
+<% remote_form_for(@jivepage.site, :html => {:id => "jp_site_form"}) do |f| %>
+
+<div style="padding: 15px 15px 0px; overflow: hidden; background-color: rgb(51, 51, 51); height: 230px; margin-bottom: 15px;">
+  <!-- Basics -->
+  <div style="" id="basics_pane">
+    <div style="border-right: 1px solid rgb(80, 80, 80); float: left; margin-right: 15px; padding-right: 15px; ">
+      <h3 style="margin-top: 0px;">Title</h3>
+      <%= f.text_field :title %>
+      <h3>Description <small style="color: rgb(136, 136, 136);">(or HTML and widgets)</small></h3>
+      <%= f.text_area :description %>
+    </div>
+
+    <div style="float: left; ">
+      <% host_and_port = "#{request.host}#{ request.port==80 ? '' : ":#{request.port}"}" %>
+      <h3>URL</h3>
+      <div style="padding: 7px 10px; background-color: rgb(61, 61, 61); white-space: nowrap; font-size: 17px; color: rgb(170, 170, 170); margin-bottom: 5px;">
+        http://<%= host_and_port %>/sites/<%= @jivepage.site_id %>
+      </div>    
+      
+      <div style="padding: 7px 10px; background-color: rgb(61, 61, 61); white-space: nowrap; font-size: 17px; color: rgb(170, 170, 170); margin-bottom: 5px;">
+        http://<%= f.text_field :host, :style => "border-width: 0px; padding: 0px 2px; width: 110px; text-align: right; font-size: 17px; background-color: rgb(51, 51, 51); color: rgb(170, 170, 170);" %>.<%= host_and_port %>
+      </div>    
+      <div style="padding: 10px; background-color: rgb(61, 61, 61); color: rgb(170, 170, 170);">
+        <table cellspacing="0" cellpadding="0" border="0">
+          <tbody><tr>
+            <td valign="top" style="padding-right: 10px;" rowspan="2">
+              <input type="checkbox" checked="no" onclick="JpMenu.set_cname_state" onchange="form_changed = true;" name="enable_cname" id="enable_cname"/>
+            </td>
+            <td>
+              <label style="font-size: 14px;" for="enable_cname">Use a custom domain name</label>
+              <br/>
+              <%= f.text_field :cname, :style => "border-width: 0px; margin: 6px 0px; padding: 3px; width: 175px; background-color: rgb(51, 51, 51); color: rgb(170, 170, 170); font-size: 14px;" %>
+              <div style="font-size: 10px;">
+                <!--a style="color: rgb(119, 119, 119);" target="_blank" href="http://www.jivepages.com/help#custom_domains">What's this?</a-->
+                <!--a style="color: rgb(119, 119, 119); margin-left: 10px;" target="_blank" href="/check_domain">Test your domain</a-->
+              </div>
+            </td>
+          </tr>
+        </tbody></table>    
+      </div>                  
+    </div>
+  </div>
+
+</div>
+
+
+<%= submit_tag "Save", :id => "jp_menu_btn_save_site" %>
+<% end %>    

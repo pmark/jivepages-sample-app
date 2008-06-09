@@ -1,0 +1,11 @@
+development:
+  adapter: mysql
+  database: husk_dev
+  username: root
+  password:
+
+test:
+  adapter: mysql
+  database: husk_test
+  username: root
+  password:

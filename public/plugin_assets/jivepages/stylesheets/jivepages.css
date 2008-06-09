@@ -1,0 +1,277 @@
+body {
+  text-align:left;
+}
+
+#doc3 {
+  margin: auto;
+}
+
+#hd,
+#bd,
+#sidebar,
+#ft {
+  border:1px solid #ddd;
+}
+#hd, #ft {
+  padding:8px;
+  min-height:3em;
+}
+#hd {
+}
+#ft {
+}
+#sidebar {
+  padding:.45em;
+}
+
+.jivepage.edit #hd {
+}
+
+
+.jivepage {
+  font-family: "lucida grande";
+  text-align:left;
+}
+
+
+.jivepage ul.cluster {
+  display: table;
+  width:100%;
+  margin:4px;
+  padding:0;
+  background-color:yellow;
+  list-style-type:none;
+  /*  display:inline;*/
+}
+
+li.whole {
+  width:100%;
+}
+
+li.half {
+  width:50%;
+}
+
+li.third {
+  width:33%;
+}
+
+li.twothirds {
+  width:66%;
+}
+
+#marker_buffer {
+}
+
+.box {
+}
+
+.row,
+.column {
+	display: block;
+  position: relative;
+}
+
+.column {
+  margin:20px 0;
+  padding:6px;
+}
+
+.edit .row {
+  padding:0px 0 0 0;
+  border:2px solid #dfdfdf;
+  margin:0px;
+}
+.edit .row.hovered {
+/*  background-color:#ffcfcf;*/
+  border:2px solid #333;
+}
+.edit .column {
+  padding:4px;
+  margin:0;
+  border:1px solid #666;
+  background-color:#efefef;
+}
+.edit .column.hovered {
+}
+.edit .box {
+  border:1px dotted #ccc;
+  margin:0;
+  padding:10px 0;
+}
+.edit .column.hovered .box {
+  border-color:#00f;
+}
+
+.tool {
+}
+
+#all_row_tools {
+}
+
+.row_menu_stub {
+  position:absolute;
+  top:-3em;
+  left:-.2em;
+  z-index:8;
+  text-align:center;
+}
+
+.row_menu_stub_a {
+  position:absolute;
+}
+
+.row_menu_stub a {
+  line-height:2.5em;
+  width:5em;
+  line-height:2.5em;
+  padding:2px;
+  margin:0;
+  display:block;
+  background-color:black;
+  color:white;
+  border:1px solid #000;
+  font-size:100%;
+  font-weight:bold;
+  font-family:arial;
+}
+
+#row_tool {
+  position:absolute;
+  top:-6em;
+  left:-.2em;
+}
+
+ul#row_menu {
+  margin:0;
+  padding:0;
+}
+#row_menu li { 
+  width:5em;
+  margin:0;
+  float:left;
+}
+
+#row_menu li a { 
+  background-color: #f4ddbe;
+  border:1px solid #999;
+  color:#666;
+  width:100%;
+  width:5.3em;
+  text-align:center;
+  vertical-align: middle;
+  text-decoration: none;
+}
+
+.edit .row.hovered .row_menu_stub,
+.edit .column.hovered .row_menu_stub,
+.edit #all_row_tools.hovered #row_tool {
+  display:block;
+}
+.edit .row .row_menu_stub,
+.edit #all_row_tools #row_tool {
+  display:none;
+}
+
+#row_menu li.drop a {color:#f00;}
+
+#jp_menu {
+  background-color:#333;
+  border:1px solid #666;
+  position:relative;
+}
+
+#jp_menu fieldset {
+  display:inline;
+  padding:4px;
+  margin:12px;
+}
+#jp_menu fieldset legend {
+  padding:4px;
+  background-color:black;
+  color:yellow;  
+}
+
+#jp_menu h5 {
+  float:right;
+  font-size:150%;
+  padding:4px;
+  color:#999;
+}
+
+#jp_menu #btn_save_structure {
+  margin:8px;
+}
+
+blockquote {
+  padding:8px;
+}
+
+textarea {
+  width:99%;
+}
+
+.yui-gb textarea {
+  width:normal;
+}
+
+.yui-u {
+}
+
+
+
+
+
+/*
+span.tool table.insert_menu td.red {background-color:red;}
+span.tool table.insert_menu td.orange {background-color:orange;}
+span.tool table.insert_menu td.yellow {background-color:yellow;}
+span.tool table.insert_menu td.green {background-color:green;}
+span.tool table.insert_menu td.blue {background-color:blue;}
+span.tool table.insert_menu td.violet {background-color:violet;}
+
+span.tool table {
+  padding:0;
+  margin:0;
+}
+span.tool table tr th a {
+  text-decoration:none;
+  width:8em;
+  padding:1em;
+  background-color:black;
+  color:white;
+  border:1px solid #111;
+  display:block;
+}
+span.tool table tr.off th a {
+  background-color:#000;
+}
+span.tool table tr td {
+  display: table-column;
+  text-align:center;
+  height:3em;
+  margin:0;
+  padding:1px;
+}
+span.tool table tr.off td {
+  display:none;
+}
+span.tool table td a {
+  text-decoration: none;
+  display:block;
+  margin:0;
+  padding:0;
+  line-height:3em;
+  width:7em;
+  color:black;
+}
+span.tool table th {
+  border:1px solid #222;
+  border-width:1px 1px 1px 0;
+}
+
+span.tool table.insert_menu tr td a:hover {
+  color:white;
+}
+
+*/

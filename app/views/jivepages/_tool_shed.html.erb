@@ -1,0 +1,42 @@
+<!-- This gets moved to a row on demand -->
+<div id="home-column_tool_shed" style="display:none">
+  <div id="all_column_tools">      
+    <div id="insert_tool">    
+      <table id="insert_menu" cellspacing="0" cellpadding="0">
+        <tr class="off">
+          <th><a href="#">INSERT</a></th>
+          <td class="red"><%= link_to_function "text", "Column.insert_text()" %></td>
+          <td class="orange"><%= link_to_function "photo", "Column.insert_photo()" %></td>
+          <td class="yellow"><%= link_to_function "video", "Column.insert_video()" %></td>
+          <td class="green"><%= link_to_function "audio", "Column.insert_audio()" %></td>
+          <td class="blue"><%= link_to_function "link", "Column.insert_link()" %></td>
+          <td class="violet"><%= link_to_function "special", "Column.insert_special()" %></td>        
+        </tr>
+      </table>
+      <table cellspacing="0" cellpadding="0">
+        <tr class="off">
+          <th class=""><%= link_to_function "[OK]", "ColumnTool.close_all()" %></th>        
+        </tr>    
+      </table>
+    </div>
+  </div>
+</div>
+
+<div id="home-row_tool_shed" style="display:none;">
+  <div id="all_row_tools">
+    <div id="row_tool" class="tool">    
+      <ul id="row_menu">
+        <li class="up"><%= link_to_function "&#8593", "Row.up()" %></li>
+        <li class="down"><%= link_to_function "&#8595", "Row.down()" %></li>
+        <li class="insert"><%= link_to_function "+", "Row.insert()" %></li>
+        <li class="drop"><%= link_to_function "X", "Row.drop()" %></li>
+        <li class="<%= Row::FULL %>"><%= link_to_function "full", "Row.format(this)" %></li>
+        <li class="<%= Row::HALVES %>"><%= link_to_function "halves", "Row.format(this)" %></li>
+        <li class="<%= Row::THIRDS %>"><%= link_to_function "thirds", "Row.format(this)" %></li>
+        <li class="<%= Row::LEFT %>"><%= link_to_function "left", "Row.format(this)" %></li>
+        <li class="<%= Row::RIGHT %>"><%= link_to_function "right", "Row.format(this)" %></li>
+      </ul>
+    </div>
+  </div>
+</div>
+

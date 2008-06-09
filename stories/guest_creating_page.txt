@@ -1,0 +1,40 @@
+Story: A User creating their first Jivepage
+
+  As a guest user
+  I want to be able to make a basic page with text and a photo
+  So that I can quickly share content with others
+  
+  Scenario: Guest creating their first Jivepage
+  
+    Given a guest user
+    When they navigate to the homepage
+    Then there should be a link to create a new page
+    When they click the new page button
+    Then they should be redirected to the Page Editor
+    And a new page should be created
+    And it should have 1 row, 1 column and 1 textblock box    
+    And it should have one big column
+    And it should have one textblock
+    And the textblock should have some default text
+
+  Scenario: Guest reformatting a row
+
+    Given a new page in edit mode
+    When the user splits the row into halves
+    Then the page should have 2 columns
+    And each column should have 1 textblock box
+  
+  Scenario: Guest adding a textblock to their new page
+  
+    Given a new page in edit mode
+    When the user clicks the column
+    Then the content menu appears 
+    And it appears at the mouse pointer position
+    And the content menu has a text icon
+    When the user clicks the text icon
+    Then a textblock appears in edit state
+    
+  
+    
+    
+    

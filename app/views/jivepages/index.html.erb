@@ -1,6 +1,4 @@
-<% content_for(:header) do %>
-  <h2>All Pages</h2>
-<% end %>
+<h2>All Pages</h2>
 
 <table>
 <% for jivepage in @jivepages %>
@@ -12,16 +10,14 @@
 <% end %>
 </table>
 
-<br />
+<blockquote>
+  <% form_for :jivepage do %>
+    <%= hidden_field_tag "jivepage[site_id]", nil %>
+    <%= submit_tag "Make your own page right now" %>
+  <% end %>
+</blockquote>
 
-<% content_for(:footer) do %>
-  <blockquote>
-    <% form_for :jivepage do %>
-      <%= hidden_field_tag "jivepage[site_id]", nil %>
-      <%= submit_tag "Make your own page right now" %>
-    <% end %>
-  </blockquote>
-<% end %>
+<br />
 
 
 

@@ -17,12 +17,13 @@ class JivepagesController < ApplicationController
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @jivepage }
+      format.template { render :layout => "yui" }
     end
   end
 
   def edit
     return unless editable_by_current_user
-    # @edit_session = EditSession.for_page_and_user(@jivepage, current_owner)
+    # @edit_session = EditSession.for_page_and_user(@jivepage, current_user)
   end
 
   def new
@@ -32,7 +33,7 @@ class JivepagesController < ApplicationController
   # Anonymous user owns all pages if there's no logged in user.
   def create
     begin
-      @user = current_owner      
+      @user = current_user      
       begin
         site_id = params[:jivepage][:site_id]
         raise "Create a site" if site_id.blank?
@@ -117,6 +118,7 @@ class JivepagesController < ApplicationController
     def find_jivepage
       begin
         @jivepage = Jivepage.find(params[:id])
+        @site = @jivepage.site
       rescue
         flash[:notice] = "Unable to find that page."
         return false
@@ -127,13 +129,14 @@ class JivepagesController < ApplicationController
     #
     #
     def editable_by_current_user
-      if @jivepage.editable_by?(current_owner)
-        return true
-      else
-        flash[:error] = "Sorry, you're not allowed to change this page."
-        redirect_to @jivepage
-        return false
-      end
+      true#permit "editor"
+    end
+
+    #
+    #
+    #
+    def viewable_by_current_user
+      # permit "viewer or editor or admin of :page", :page => @jivepage
     end
 
     #
@@ -148,8 +151,9 @@ class JivepagesController < ApplicationController
     #
     #
     #
-    def current_owner
-      current_user || Jivepage.anonymous_user
+    alias :old_current_user :current_user
+    def current_user
+      old_current_user || Jivepage.anonymous_user
     end
 
 end

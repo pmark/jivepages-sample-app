@@ -4,7 +4,7 @@ module JivepagesHelper
   #
   def dom_id(o, suffix=nil)
     return unless o     
-    o.class.name.underscore + (suffix ? "-#{suffix}" : '')    
+    "#{o.class.name.underscore}_#{o.id}" + (suffix ? "_#{suffix}" : '')    
   end
   
   def render_one_cell(cell, options={}, &block)   
@@ -55,4 +55,7 @@ module JivepagesHelper
     render :partial => "#{type.to_s}s/tool_shed", :locals => {type => o}
   end
 
+  def edit_mode?
+    controller.action_name == "edit"
+  end
 end

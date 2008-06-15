@@ -1,6 +1,7 @@
 <% remote_form_for(@jivepage,
 :html => {:id => "jp_page_form"}) do |f| %>
 <h5>Page</h5>
+<div style="">
 <fieldset>  
   <legend>Layout</legend>
   <ul>
@@ -36,6 +37,36 @@
     </li>
   </ul>  
 </fieldset>
+
+<fieldset>  
+  <legend>Header</legend>
+  <ul>
+    <li>
+      <%= f.radio_button :header, Jivepage::YES_HEADER %> 
+      <label for="jivepage_header_yes">yes</label>
+    </li>
+    <li>
+      <%= f.radio_button :header, Jivepage::NO_HEADER %> 
+      <label for="jivepage_header_no">no</label>
+    </li>
+  </ul>  
+</fieldset>
+
+<fieldset>  
+  <legend>Footer</legend>
+  <ul>
+    <li>
+      <%= f.radio_button :footer, Jivepage::YES_FOOTER %> 
+      <label for="jivepage_footer_yes">yes</label>
+    </li>
+    <li>
+      <%= f.radio_button :footer, Jivepage::NO_FOOTER %> 
+      <label for="jivepage_footer_no">no</label>
+    </li>
+  </ul>  
+</fieldset>
+
+</div>
 
 <%= submit_tag "Save", :id => "jp_menu_btn_save_page" %>
 <% end %>    

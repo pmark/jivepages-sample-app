@@ -9,15 +9,15 @@
   </ul>
 
   <% if @jivepage.user == current_user %>
-  <% remote_form_for(:contributorship, @contributorship, :url => contributorships_path) do |f| %>
+  <!--% remote_form_for(:contributorship, @contributorship, :url => contributorships_path) do |f| %-->
   <% @contributorship = Contributorship.new(:jivepage => @jivepage) %>
-  <%= f.hidden_field :jivepage_id %>
+  <!--%= f.hidden_field :jivepage_id %-->
   <p>
     <b>Enter new contributor's email address</b><br />
     <%= text_field_tag "email", nil, :size => 35 %>
     <%= submit_tag "Invite as contributor" %>
   </p>  
-  <% end %>
+  <!--% end %-->
   <% end %>
 
 

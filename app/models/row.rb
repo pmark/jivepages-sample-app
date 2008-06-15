@@ -40,7 +40,7 @@ class Row < ActiveRecord::Base
   }
 
   def dom_id
-    "row-#{self.id}"
+    "row_#{self.id}"
   end
   
   def yui_grid_type    
@@ -111,8 +111,8 @@ class Row < ActiveRecord::Base
     def insert_columns(add_count)
       add_count.times do
         new_column = self.columns.create(:jivepage => jivepage)
-        new_column.create_box!("textblock", 1, 
-            :content => "Click here to change text.") if new_column.first?
+         # new_column.create_box!("textblock", 1, 
+         #    :content => "Click here to change text.") if new_column.first?
       end
     end
 

@@ -1,40 +1,104 @@
 <% remote_form_for(@jivepage,
 :html => {:id => "jp_permissions_form"}) do |f| %>
-<h5>Page</h5>
+<h5>Permissions</h5>
 <fieldset>  
-  <legend>Permissions</legend>
+  <legend>Visitors</legend>
+  <h3>What are anonymous site visitors allowed to do?</h3>
+  <blockquote>
+    <p>
+      <%= check_box_tag "xxx" %>
+      <label>View pages</label>
+    </p>
+    <p>
+      <%= check_box_tag "xxx" %>
+      <label>Edit pages</label>
+    </p> 
+    <p>
+      <%= check_box_tag "xxx" %>
+      <label>Add pages</label>
+    </p>
+    <p>
+      <%= check_box_tag "xxx" %>
+      <label>Delete pages</label>
+    </p>
+  </blockquote>  
+</fieldset>
 
-<table cellspacing="1" cellpadding="6" class="centered_content" style="background-color:#efefef;">
-  <tr style="background-color:#000; color:#fff">
-    <td>PERMISSIONS</td>
-    <td>editor</td>
-    <td>guest</td>
-    <td>anonymous</td>
-  </tr>
-  <tr style="background-color:#cfcfcf;">
-    <td style="background-color:#000; color:#fff">view</td>
-  </tr>
-  <tr style="background-color:#dfdfdf;">
-    <td style="background-color:#000; color:#fff">edit</td>
-  </tr>
-  <tr style="background-color:#cfcfcf;">
-    <td style="background-color:#000; color:#fff">add</td>
-  </tr>
-  <tr style="background-color:#cfcfcf;">
-    <td style="background-color:#000; color:#fff">delete</td>
-  </tr>
-  <tr style="background-color:#cfcfcf;">
-    <td style="background-color:#000; color:#fff">invite</td>
-  </tr>
-</table>   
+<hr class="divider">
+<fieldset>
+  <legend>Collaborators</legend>
+  <h3>What are personally invited people allowed to do?</h3>
+  <blockquote>  
+    <p>
+      <%= check_box_tag "xxx" %>
+      <label>View pages</label>
+    </p>
+    <p>
+      <%= check_box_tag "xxx" %>
+      <label>Edit pages</label>
+    </p> 
+    <p>
+      <%= check_box_tag "xxx" %>
+      <label>Add pages</label>
+    </p>
+    <p>
+      <%= check_box_tag "xxx" %>
+      <label>Delete pages</label>
+    </p>
+  </blockquote>
+</fieldset>
 
-<p>
-  Private pages don't appear in any searches.
+<!-- <p>
+  Maybe try observing the form for changes and submit the whole thing.
+  periodically_call_remote(:url => 'update', :frequency => '5', :update => 'ticker')
+
 </p>
 
 <p>
-  [x] Make public (will be indexed by search engines)
+  Permissions are polymorphic:
+  subject_id:integer subject_type:string name:string 
+
+  I want to model this: For a Site...
+  guests are allowed to edit.
+  editors are allowed
+
+  SAMPLE ROW
+  site, site_id, edit, 
+
 </p>
-   
-<%= submit_tag "Save", :id => "jp_menu_btn_save_permissions" %>
+-->
 <% end %>    
+
+<!--%= observe_field("jp_permissions_form",
+  :url => { :controller => "permissions", :action => "update" },
+  :frequency => 1.0,
+  :update => :jp_messages,
+  :with => 'query')
+  %-->
+
+  <% remote_form_for(@jivepage, 
+      :html => {:id => "jp_permissions_password_form"}) do |f| %>
+
+  <hr class="divider">
+  <fieldset>
+    <legend>Passwords</legend>
+    <h3>Optionally protect access to your site with passwords.</h3>
+    
+    <blockquote>
+      <p class="para">
+        <label>Admin password</label><br/>
+        <%= f.password_field :admin_password %>
+      </p>
+      <p class="para">
+        <br/>
+        <label>Collaborator password</label><br/>
+        <%= f.password_field :collaborator_password %>
+      </p> 
+      <p class="para">
+        <br/>
+        <label>Visitor password</label><br/>
+        <%= f.password_field :viewer_password %>
+      </p>  
+    </blockquote>
+  </fieldset>
+<% end %>

@@ -1,3 +1,4 @@
+<%= render :partial => "jivepages/tool_shed" %>
 <% content_for(:header) do %>
   <%= rows_for(:header, @jivepage) %>
 <% end %>
@@ -6,6 +7,5 @@
 
 <% content_for(:footer) do %>
   <%= rows_for(:footer, @jivepage) %>  
-  <%= render :partial => "jivepages/tool_shed" %>
 <% end %>
 

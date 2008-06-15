@@ -1,13 +1,13 @@
 <% remote_form_for(@jivepage.site, :html => {:id => "jp_site_form"}) do |f| %>
 
-<div style="padding: 15px 15px 0px; overflow: hidden; background-color: rgb(51, 51, 51); height: 230px; margin-bottom: 15px;">
+<div style="padding: 15px 15px 0px; overflow: hidden; background-color: rgb(51, 51, 51); margin-bottom: 15px;">
   <!-- Basics -->
   <div style="" id="basics_pane">
-    <div style="border-right: 1px solid rgb(80, 80, 80); float: left; margin-right: 15px; padding-right: 15px; ">
+    <div style="border-right: 1px solid rgb(80, 80, 80); float: left; margin-right: 15px; padding-right: 15px;">
       <h3 style="margin-top: 0px;">Title</h3>
-      <%= f.text_field :title %>
+      <%= f.text_field :title, :style => "width:20em;" %>
       <h3>Description <small style="color: rgb(136, 136, 136);">(or HTML and widgets)</small></h3>
-      <%= f.text_area :description %>
+      <%= f.text_area :description, :style => "height:8em; width:20em;" %>
     </div>
 
     <div style="float: left; ">

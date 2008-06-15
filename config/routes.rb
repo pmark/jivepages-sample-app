@@ -10,13 +10,13 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :sites
   map.resources :rows, :member => {:up => :put, :down => :put}
   map.resources :columns
-  map.resources :boxes
+  map.resources :boxes, :member => {:set_box_content => :post}
   map.resources :page_changes
   map.resources :edit_sessions
   map.resources :contributorship
 
   map.root :controller => "jivepages", :action => "index"
 
-  #map.connect ':controller/:action/:id'
-  #map.connect ':controller/:action/:id.:format'
+  map.connect ':controller/:action/:id'
+  map.connect ':controller/:action/:id.:format'
 end

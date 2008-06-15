@@ -2,6 +2,34 @@ body {
   text-align:left;
 }
 
+h1 {
+  font-size:160%;
+  margin:.4em 0 .2em 0;  
+}
+
+h2 {
+  font-size:140%;
+  margin:.4em 0 .2em 0;  
+}
+
+h3 {
+  font-size:120%;
+  margin:.4em 0 .2em 0;
+}
+
+p.para {
+  margin:.5em 0;
+}
+
+hr.divider {
+  clear:both;
+  display:block;
+  margin-top:1em;
+}
+
+label {
+}
+
 #doc3 {
   margin: auto;
 }
@@ -109,7 +137,11 @@ li.twothirds {
 #all_row_tools {
 }
 
-.row_menu_stub {
+.edit .row_menu_stub {
+  display:none;
+}
+
+.edit .row_menu_stub {
   position:absolute;
   top:-3em;
   left:-.2em;
@@ -275,3 +307,30 @@ span.tool table.insert_menu tr td a:hover {
 }
 
 */
+
+table.spreadsheet tr th,
+table.spreadsheet tr td {
+  border:1px solid #666;
+  padding:8px;
+  text-align:center;
+}
+table.spreadsheet tr th {
+  background-color:#000;
+  color:#fff;
+}
+
+#floating_menu {
+  top:75px;
+  right:10px;
+  position:absolute;
+  z-index:11;
+  border:2px solid #666;
+  background-color:#222;
+  color:#fff;
+  padding:4px 12px;
+}
+
+#floating_menu a {
+  color:yellow;
+}
+

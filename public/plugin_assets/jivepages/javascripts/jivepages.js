@@ -16,18 +16,19 @@ var Jivepage = {
     root.id = this.atts["layout"]
     root.className = "jivepage " + this.atts["skin"]
     if (edit_mode) {Element.addClassName(root, "edit")}
-    if (this.atts["sidebar"] == "none") {
-      Element.hide("sidebar_section")      
-    } else {
-      Element.show("sidebar_section")
-    }
+    if (this.atts["sidebar"] == "none") {Element.hide("sidebar_section")      
+    } else {Element.show("sidebar_section")}
+    if (this.atts["header"] == 0) {Element.hide("hd")      
+    } else {Element.show("hd")}
+    if (this.atts["footer"] == 0) {Element.hide("ft")      
+    } else {Element.show("ft")}
   },
   strip_id: function(elem) {
     if (typeof elem == 'object') { elem = elem.id }
-    return elem.replace(/.*-/, '')          
+    return elem.replace(/.*_/, '')          
   },
   get_token: function(form_id) {
-    if (form_id == null) { form_id = "structure_form"}
+    if (form_id == null) { form_id = "hidden_form"}
     return Form.getInputs(form_id, "hidden", "authenticity_token")[0].value    
   },
   get_jivepage_id: function() {
@@ -37,7 +38,7 @@ var Jivepage = {
     return Jivepage.jivepage_id
   },
   add_token_to_form: function(editor, form) {
-    token_field = Form.getInputs("structure_form", "hidden", "authenticity_token")[0]
+    token_field = Form.getInputs("hidden_form", "hidden", "authenticity_token")[0]
     hidden = '<input type="hidden" name="authenticity_token" value="' + 
         token_field.value + '"/>'
     new Insertion.Bottom(form, hidden)
@@ -87,7 +88,7 @@ var Tool = Class.create({
 var ColumnTool = Class.create(Tool, {
   initialize: function($super) {
     $super()
-    this.shed_suffix = "-column_tool_shed"
+    this.shed_suffix = "_column_tool_shed"
     this.tool_id = "all_column_tools"
     this.active = true
   },
@@ -105,7 +106,7 @@ var ColumnTool = Class.create(Tool, {
 var RowTool = Class.create(Tool, {
   initialize: function($super) {
     $super()
-    this.shed_suffix = "-row_tool_shed"
+    this.shed_suffix = "_row_tool_shed"
     this.tool_id = "all_row_tools"
     this.active = true
     this.setup()
@@ -127,7 +128,7 @@ var RowTool = Class.create(Tool, {
 
 var Column = {
   current: null,
-  tool_suffix: "-column_tool",
+  tool_suffix: "_column_tool",
   setup: function(parent_column_id) {
     if (parent_column_id == null) {
       selection = $$('.edit .column')

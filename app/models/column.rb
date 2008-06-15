@@ -5,7 +5,7 @@ class Column < ActiveRecord::Base
   has_many :boxes, :dependent => :destroy
   
   def dom_id
-    "column-#{self.id}"
+    "column_#{self.id}"
   end
 
   def move_boxes_to(target_column)

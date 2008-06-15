@@ -1,7 +1,6 @@
 class RowsController < ApplicationController
   helper :jivepages
   
-  
   def update
     @row = Row.find(params[:id])
 
@@ -82,8 +81,9 @@ class RowsController < ApplicationController
   def show
     @row = Row.find(params[:id])
     respond_to do |format|
-      format.html
+      format.html { render :layout => false }
       format.xml  { render :xml => @row }
+      format.template { render :layout => :false }
     end
   end
 
@@ -112,6 +112,7 @@ class RowsController < ApplicationController
         format.xml  { render :xml => row, :status => :created, :location => row }
         format.js   { 
           render :update do |page|
+            @use_tool = true
             page.insert_html :after, anchor_row.dom_id, 
                 :partial => "rows/row", :locals => {:row => row}
             page.call "Row.setup", row.dom_id

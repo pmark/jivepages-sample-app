@@ -20,7 +20,7 @@ class Box < ActiveRecord::Base
   end
   
   def dom_id
-    "box-#{self.id}"
+    "box_#{self.id}"
   end
   
   def reposition(new_position)

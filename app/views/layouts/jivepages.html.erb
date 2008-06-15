@@ -20,10 +20,11 @@
 
 <body>
   <div id="<%= @jivepage.layout || "doc" %>" class="jivepage <%= @jivepage.skin %> <%= controller.action_name %>">
-    <%= render :partial => "jivepages/menu" if controller.action_name == "edit" %>
-    <div id="hd">
+    <%= render :partial => "jivepages/menu" if edit_mode? %>
+    <div id="hd" style="<%= 'display:none' unless @jivepage.header? %>">
       <div id="header_section" class="yui-b">
         <%= yield :header %>
+        <div id="jp_messages" style=""></div>
       </div>      
     </div>
     <div id="bd">
@@ -36,7 +37,7 @@
         <%= yield :sidebar %>
       </div>
     </div>
-    <div id="ft">
+    <div id="ft" style="<%= 'display:none' unless @jivepage.footer? %>">
       <div id="footer_section" class="yui-b">
         <%= yield :footer %>
       </div>      

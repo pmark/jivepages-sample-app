@@ -13,12 +13,16 @@ class SitesController < ApplicationController
   # GET /sites/1
   # GET /sites/1.xml
   def show
-    @site = Site.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @site }
-    end
+    begin
+      @site = Site.find(params[:id])
+      respond_to do |format|
+        format.html { redirect_to jivepage_path(@site.jivepages.first)}
+        format.xml  { render :xml => @site }
+      end
+    rescue
+      flash[:notice] = "Couldn't find that site."
+      redirect_to sites_path
+    end    
   end
 
   # GET /sites/new

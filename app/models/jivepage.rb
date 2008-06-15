@@ -32,6 +32,10 @@ class Jivepage < ActiveRecord::Base
   COMPACT_LAYOUT = "compact"
   WIDE_LAYOUT = "wide"
   FLUID_LAYOUT = "fluid"
+  NO_HEADER = 0
+  YES_HEADER = 1
+  NO_FOOTER = 0
+  YES_FOOTER = 1
   
   def self.create_and_setup(options={})
     jivepage = Jivepage.create!(options)
@@ -118,7 +122,7 @@ class Jivepage < ActiveRecord::Base
   end    
   
   def dom_id
-    "jivepage-#{id}"
+    "jivepage_#{id}"
   end
   
   def is_are(count)
